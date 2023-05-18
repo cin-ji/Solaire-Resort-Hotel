@@ -1,0 +1,224 @@
+<header id="intro" style="display: block;">
+  <article class="fullheight" style="height: 568px;">
+    <div class="hgroup">
+      <h1>Solaire Resort</h1>
+      <h2>Manila, Philippines</h2>
+      <p><a href="/welcome"><img src="assets/images/arrow.png" alt="down arrow"></a></p>
+    </div>
+  </article>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <div class="scrollmagic-pin-spacer"
+       style="display: block; top: auto; left: auto; bottom: auto; right: auto; position: relative; margin: 0 auto auto; box-sizing: content-box; width: 100%; min-height: 44px; height: auto; padding-top: 0; padding-bottom: 0;">
+    <nav id="nav" style="position: relative; top: 0; left: 0; bottom: auto; right: auto; width: 100%;">
+      <div class="navbar">
+        <div class="brand"><a href="/#welcome">Solaire <span>Resort</span></a></div>
+      </div><!-- navbar -->
+    </nav>
+  </div>
+</header>
+<main id="wrapper">
+  <div class="scene" id="welcome">
+    <article class="content">
+
+
+      <div class="row">
+        <div class="" col-12>
+          <div class="gallery">
+            <img src="assets/images/intro_room.jpg" alt="Intro Gallery Room Sample Pictures">
+            <img src="assets/images/intro_pool.jpg" alt="Intro Gallery Pool Sample Pictures">
+            <img src="assets/images/intro_dining.jpg" alt="Intro Gallery Dining Sample Pictures">
+            <img src="assets/images/intro_attractions.jpg" alt="Intro Gallery Attractions Sample Pictures">
+            <img class="hidesm" src="assets/images/intro_wedding.jpg" alt="Intro Gallery Dining Sample Pictures">
+          </div>
+          <h1>Book a Room</h1>
+          <form class="form-horizontal" [formGroup]="roomsearch"
+                (ngSubmit)="onSubmit(roomsearch)">
+
+            <div class="form-group">
+              <label for="checkin" class="col-4">Check-In:</label>
+              <div class="col-12">
+                <input id="checkin" type="date" class="form-control" formControlName="checkin">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="checkout" class="col-4">Check-Out:</label>
+              <div class="col-12">
+                <input id="checkout" type="date" class="form-control" formControlName="checkout">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-offset-2 col-12">
+                <button type="submit" class="btn btn-primary btn-lg"> Submit</button>
+              </div>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+
+      <h1>Available Rooms</h1>
+
+      <div class="row" *ngIf="rooms">
+        <div class="col-12">
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+              <tr *ngFor="let room of rooms">
+                <td>
+                  <img src="assets/images/intro_room.jpg" alt="Intro Gallery Room Sample Pictures">
+                </td>
+                <td>
+                  <strong>Room #: {{room.roomNumber}}</strong><br/>
+                  <strong>Price: {{room.price | currency: 'USD'}}</strong><br/>
+                  <strong>Price: {{room.price | currency: 'CAD'}}</strong><br/>
+                  <strong>Price: {{room.price | currency: 'EUR'}}</strong>
+                </td>
+                <td>
+                  <button type="submit" class="btn btn-primary" (click)="reserveRoom(room.id)">Reserve</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div><!-- welcome -->
+  <div class="scene" id="hotelinfo">
+    <article class="heading">
+      <h1>Essential Info</h1>
+    </article>
+    <article id="usefulinfo">
+      <section id="arrivalinfo">
+        <h2>Arrival Information</h2>
+        <ul>
+          <li><strong>Check-in:</strong> 3:00 PM</li>
+          <li><strong>Check-out:</strong> 11:00 AM</li>
+          <li><strong>Parking:</strong> Self-parking in the underground garage is CA$15 per day and valet-parking is
+            CA$50
+            per day.
+          </li>
+          <li><strong>Airport Shuttle:</strong> Our complimentary airport shuttles leave every hour on the hour, and
+            make trips to Manila International Airport. Shuttles to Toronto Pearson are available twice a day for CA$50.
+          </li>
+          <li><strong>Trains:</strong> The nearest train station is at Manila Station, which is a major interchange for
+            Via Rail trains running from Toronto west to Sarnia and Windsor.
+          </li>
+          <li><strong>Pet Policy:</strong> Pets of all sizes and types are allowed in designated pet rooms, and the
+            specified common areas. Service animals are allowed everywhere.
+          </li>
+        </ul>
+      </section>
+      <section class="checklist" id="services">
+        <h2>Services and Amenities</h2>
+        <p>Our services and amenities are designed to make your travel easy, your stay comfortable, and your experience
+          one-of-a-kind.</p>
+        <ul>
+          <li>Indoor pool</li>
+          <li>24-hour fitness center</li>
+          <li>Massage therapy</li>
+          <li>Full service spa</li>
+          <li>In-room jacuzzi tubs</li>
+          <li>Rooftop café &amp; smoothie bar</li>
+          <li>Coffee bar &amp; pastry shop</li>
+          <li>Traditional continental breakfast</li>
+          <li>24-hour concierge service</li>
+          <li>Business center</li>
+          <li>Complimentary wireless service</li>
+          <li>Laundry &amp; dry cleaning service</li>
+          <li>Daily paper</li>
+          <li>Certified "green" hotel</li>
+          <li>Pet-friendly rooms &amp; common areas</li>
+        </ul>
+      </section>
+      <section class="checklist" id="accessibility">
+        <h2>Accessibility</h2>
+        <p>We're committed to maintaining the same quality of service for every individual. We offer the following
+          facilities for those with special needs:</p>
+        <ul>
+          <li>Grab bars on tub walls</li>
+          <li>Shower chairs</li>
+          <li>Hand held shower sprayers</li>
+          <li>Higher toilets &amp; toilet modifiers</li>
+          <li>Lower sink faucet handles</li>
+          <li>Wheelchair clearance under sinks &amp; vanity</li>
+          <li>Lower racks in closet</li>
+          <li>TDD machines</li>
+          <li>Telephone light signalers &amp; smoke alarms</li>
+          <li>Telephone amplification handsets</li>
+          <li>Closed captioned television converters</li>
+          <li>Vibrating alarm clocks</li>
+          <li>Telephones with volume control</li>
+        </ul>
+      </section>
+    </article>
+    <article id="greenprogram">
+      <h2>The Solaire Rewards</h2>
+      <p>Enjoy every visit by becoming a member of Solaire Rewards. Earn points every time you play your favorite casino
+        game, book a hotel room, indulge in invigorating spa treatments,
+        shop at any of our retail outlets, or dine at any of our restaurants. Sign up for free at the Solaire Rewards
+        counter or visit solaireonlinecasino.com and start earning rewards today!
+      </p>
+    </article>
+  </div><!-- hotelinfo -->
+
+  <div class="scene" id="dining">
+    <article id="areadining">
+      <h1>Dining in the Area</h1>
+      <p>If you are looking for an extraordinary Korean barbecue experience, head over to Kiwa to satisfy your cravings.
+        Feast on a variety of savory melt-in-your-mouth meats and other dishes prepared the traditional Korean way for a
+        unique gourmet experience.</p>
+    </article>
+    <article id="inhotel">
+      <section id="rooftopcafe">
+        <h2>Signature Dining Restaurants</h2>
+        <img src="assets/images/dining_rooftop.jpg" alt="Dining">
+        <p>Experience a whole slew of signature dining restaurants at Solaire’s signature food outlets. We’ve brought in
+          the best of the world’s culinary scene to bring you a symphony of flavors. Experience the epitome of authentic
+          signature dining in the Philippines.</p>
+      </section>
+
+      <section id="smoothiebar">
+        <h2>Casual Dining Restaurants</h2>
+        <img src="assets/images/dining_smoothiebar.jpg" alt="Dining">
+        <p>The Rooftop Smoothie Bar gives you panoramic views of the city, where you can have one of our specialty
+          smoothies while you wait for your table. Our top mixologists are constantly bringing new and unique offerings
+          to our smoothie menu. We have a wide range of locally grown, fresh fruit and vegetable choices to make you
+          custom blended drinks. We also have seasonal selections that you won’t find anywhere else.</p>
+      </section>
+
+      <section id="coffeebar">
+        <h2>Whisky Bar</h2>
+        <img src="assets/images/dining_lattes.jpg" alt="Dining">
+        <p>There’s never a bad time for good whisky and cigars. Step into a world of old-fashioned charm and
+          sophistication at the Whisky Bar. Home to a long list of sought-after fine spirits, we offer everything from
+          blended malts, single malts, bourbons, whiskeys to a wide range of hand-rolled cigars. Truly a classic in its
+          own right, come drop by today.</p>
+      </section>
+    </article><!-- inhotel -->
+    <article id="roomservice">
+      <h1>Room Service</h1>
+      <p>If you’d rather stay in your room and enjoy a quiet evening in, or a relaxing breakfast in bed, room service
+        options are available for all of our dining choices.</p>
+    </article>
+  </div><!-- dining -->
+
+</main>
+<footer class="scene">
+  <article class="content">
+    <div id="socialmedia">
+      <ul class="group">
+        <li><a href="https://twitter.com/"><img class="icon" src="assets/images/twitter.png"
+                                                alt="icon for twitter"></a></li>
+        <li><a href="http://www.facebook.com/"><img class="icon" src="assets/images/facebook.png"
+                                                    alt="icon for facebook"></a></li>
+        <li><a href="http://www.youtube.com/"><img class="icon" src="assets/images/youtube.png" alt="icon for youtube"></a>
+        </li>
+      </ul>
+    </div>
+  </article>
+</footer>
+<script src="src/app/images/script.js"></script>
