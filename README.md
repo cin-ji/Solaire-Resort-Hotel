@@ -9,10 +9,10 @@ This is a hotel web app built using Angular front end and Spring Java back end.
 ## Home Page
 <img src="https://github.com/cin-ji/Solaire-Resort-Hotel/blob/master/screenshots/Home.png?raw=true" width=900>
 
-## Middle of Home
+## Info
 <img src="https://github.com/cin-ji/Solaire-Resort-Hotel/blob/master/screenshots/Info.png?raw=true" width=900>
 
-## Bottom of Page
+## More Details
 <img src="https://github.com/cin-ji/Solaire-Resort-Hotel/blob/master/screenshots/Dining.png?raw=true" width=900>
 
 
